@@ -26,10 +26,8 @@ chmod +x "$install_dir/nginx-ui"
 #=================================================
 ynh_script_progression --message="Adding system configurations related to $app..." --weight=1
 
-# Create a dedicated NGINX config using the conf/nginx.conf template
 ynh_add_nginx_config
 
-# Create a dedicated systemd config
 ynh_add_systemd_config
 
 yunohost service add "$app" --description="A short description of the app" --log="/var/log/$app/$app.log"
@@ -41,10 +39,10 @@ yunohost service add "$app" --description="A short description of the app" --log
 #=================================================
 ynh_script_progression --message="Adding a configuration file..." --weight=1
 
-ynh_add_config --template="some_config_file" --destination="$install_dir/some_config_file"
+ynh_add_config --template="app.ini" --destination="$data_dir/app.ini"
 
-chmod 400 "$install_dir/some_config_file"
-chown "$app:$app" "$install_dir/some_config_file"
+chmod 400 "$data_dir/app.ini"
+chown "$app:$app" "$data_dir/app.ini"
 
 #=================================================
 # GENERIC FINALIZATION
@@ -54,7 +52,7 @@ chown "$app:$app" "$install_dir/some_config_file"
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 # Start a systemd service
-ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$app/$app.log"
+ynh_systemd_action --service_name="$app" --action="start" --log_path="systemd"
 
 #=================================================
 # END OF SCRIPT
