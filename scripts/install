@@ -39,10 +39,10 @@ yunohost service add "$app" --description="A short description of the app" --log
 #=================================================
 ynh_script_progression --message="Adding a configuration file..." --weight=1
 
-ynh_add_config --template="app.ini" --destination="$data_dir/app.ini"
+ynh_add_config --template="app.ini" --destination="$install_dir/app.ini"
 
-chmod 400 "$data_dir/app.ini"
-chown "$app:$app" "$data_dir/app.ini"
+chmod 400 "$installdir/app.ini"
+chown "$app:$app" "$install_dir/app.ini"
 
 #=================================================
 # GENERIC FINALIZATION
