@@ -44,7 +44,7 @@ ram.runtime = "50M"
 
     [resources.sources.main]
     url = "https://github.com/0xJacky/nginx-ui/releases/download/v2.0.0-beta.16/nginx-ui-linux-64.tar.gz.digest"
-    sha256 = "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    sha256 = "8801a775450741b91ead2f4d8046911297a147999163245e7273c40ce4334ff3"
     rename = "nginx-ui"
     in_subdir = false
     autoupdate.strategy = "latest_github_tag"
